@@ -60,21 +60,27 @@ const embeddedTranslations = {
     "visualSizer.calculatedInputValueCalibrated": "{{value}} mm (Calibrated)",
     "visualSizer.accuracyDisclaimerTitle": "Accuracy Disclaimer (Pre-Calibration):",
     "visualSizer.accuracyDisclaimerContent": "This visual sizer relies on a standard screen PPI. For precise measurements, calibrate your screen or consult a professional jeweler.",
+    "visualSizer.ringAreaLabel": "Ring sizing area with adjustable blue circle",
+    "visualSizer.ringDescription": "Blue circle with current diameter of {{diameter}} pixels",
 
     "visualSizer.calibration.initialTitle": "Screen Calibration Needed",
     "visualSizer.calibration.initialDesc": "For accurate visual sizing, let's quickly calibrate your screen using a standard credit card.",
     "visualSizer.calibration.startCalibrationButton": "Start Calibration",
     "visualSizer.calibration.calibratingTitle": "Calibrate Your Screen",
-    "visualSizer.calibration.calibratingDesc1Vertical": "Take any standard credit/debit card. Hold it <strong class=\"font-semibold text-rose-600\">vertically</strong> against your screen.",
-    "visualSizer.calibration.calibratingDesc2Vertical": "Adjust the slider below until the <strong class=\"font-semibold text-rose-600\">height of the on-screen red rectangle</strong> exactly matches the <strong class=\"font-semibold text-rose-600\">height of your physical card</strong> (the shorter edge, approx. 54mm).",
-    "visualSizer.calibration.calibratingDesc1LongEdgeVertical": "Take any standard credit/debit card. Hold it so its <strong class=\"font-semibold text-rose-600\">long edge is vertical</strong> against your screen.",
-    "visualSizer.calibration.calibratingDesc2LongEdgeVertical": "Adjust the slider below until the <strong class=\"font-semibold text-rose-600\">height of the on-screen red rectangle</strong> exactly matches the <strong class=\"font-semibold text-rose-600\">length of the long edge of your physical card</strong> (approx. {{value}}mm).",
+    "visualSizer.calibration.calibratingDesc1VerticalBottomAlign": "Take any standard credit/debit card. Hold it so its <strong class=\"font-semibold text-rose-600\">long edge is vertical</strong>. Align the <strong class=\"font-semibold text-rose-600\">bottom edge of your card</strong> with the <strong class=\"font-semibold text-rose-600\">bottom dashed border of the red rectangle on screen</strong>. Ensure the card is <strong class=\"font-semibold text-rose-600\">flat</strong> against your screen and view <strong class=\"font-semibold text-rose-600\">directly head-on</strong>. Check browser page zoom is 100%.",
+    "visualSizer.calibration.calibratingDesc2VerticalBottomAlign": "Adjust the slider until the <strong class=\"font-semibold text-rose-600\">top dashed border of the red rectangle</strong> aligns with the <strong class=\"font-semibold text-rose-600\">top edge of your card</strong>. Use the <strong class=\"font-semibold text-rose-600\">extended crosshair lines</strong> for edge alignment. Align your <strong class=\"font-semibold text-rose-600\">card's corners</strong> with the <strong class=\"font-semibold text-rose-600\">corners of the red dashed rectangle</strong>; the small gray <strong class=\"font-semibold text-rose-600\">L-shaped guides</strong> should then be visible just outside your card's corners. The rectangle's height should match your card's long edge (approx. {{value}}mm).",
     "visualSizer.calibration.sliderLabelVertical": "Adjust Calibration Rectangle Height",
-    "visualSizer.calibration.saveButton": "Save Calibration & Measure Ring",
-    "visualSizer.calibration.recalibrateButton": "Recalibrate Screen",
     "visualSizer.calibration.currentHeight": "Rectangle Height:",
     "visualSizer.calibration.targetHeight": "Target:",
-
+    "visualSizer.calibration.saveButton": "Save Calibration & Measure Ring",
+    "visualSizer.calibration.recalibrateButton": "Recalibrate Screen",
+    "visualSizer.calibration.dprMismatchPrompt": "Your screen's pixel density or zoom level appears to have changed since the last calibration. Please recalibrate for accurate measurements.",
+    "visualSizer.calibration.ppiWarning": "Screen density ({{ppi}} PPI) seems unusual. For best results: <ul class='list-disc list-inside mt-1 text-left'><li class='ml-2'>Ensure the card is <strong>flat</strong> against screen.</li><li class='ml-2'>View screen <strong>directly head-on</strong>.</li><li class='ml-2'>Check browser page zoom is 100%.</li></ul>If alignment is correct, you can still save.",
+    "visualSizer.calibration.areaLabel": "Screen calibration area with adjustable red rectangle, extended crosshairs, and L-shaped corner guides.",
+    "visualSizer.calibration.rectDescription": "Red calibration rectangle currently {{height}} pixels high and {{width}} pixels wide.",
+    "visualSizer.calibration.loupeTopLeftTitle": "Top-Left Corner",
+    "visualSizer.calibration.loupeTopRightTitle": "Top-Right Corner",
+    
     "visualSizer.accuracyDisclaimerTitleCalibrated": "Accuracy Note:",
     "visualSizer.accuracyDisclaimerContentCalibrated": "Accuracy depends on precise screen calibration and how you align the ring. For critical measurements, always consult a professional jeweler."
   },
@@ -93,7 +99,6 @@ const embeddedTranslations = {
     "app.installBanner.text": "Hızlı çevrimdışı erişim için alvetak Yüzük Ölçer'i yükleyin!",
     "app.installBanner.installButton": "Uygulamayı Yükle",
     "app.installBanner.dismissButton": "Kapat",
-
 
     "inputType.diameter_mm": "Çap (mm)",
     "inputType.circumference_mm": "Çevre (mm)",
@@ -138,22 +143,29 @@ const embeddedTranslations = {
     "visualSizer.calculatedInputValueCalibrated": "{{value}} mm (Kalibre Edildi)",
     "visualSizer.accuracyDisclaimerTitle": "Doğruluk Uyarısı (Kalibrasyon Öncesi):",
     "visualSizer.accuracyDisclaimerContent": "Bu görsel ölçer standart bir ekran PPI değerine dayanır. Doğru ölçümler için ekranınızı kalibre edin veya profesyonel bir kuyumcuya danışın.",
-    "visualSizer.accuracyDisclaimerTitleCalibrated": "Doğruluk Notu:",
-    "visualSizer.accuracyDisclaimerContentCalibrated": "Doğruluk, hassas ekran kalibrasyonuna ve yüzüğü nasıl hizaladığınıza bağlıdır. Kritik ölçümler için daima profesyonel bir kuyumcuya danışın.",
+    "visualSizer.ringAreaLabel": "Ayarlanabilir mavi daireli yüzük ölçüm alanı",
+    "visualSizer.ringDescription": "Mevcut çapı {{diameter}} piksel olan mavi daire",
 
     "visualSizer.calibration.initialTitle": "Ekran Kalibrasyonu Gerekli",
     "visualSizer.calibration.initialDesc": "Doğru görsel ölçüm için, standart bir kredi kartı kullanarak ekranınızı hızlıca kalibre edelim.",
     "visualSizer.calibration.startCalibrationButton": "Kalibrasyonu Başlat",
     "visualSizer.calibration.calibratingTitle": "Ekranınızı Kalibre Edin",
-    "visualSizer.calibration.calibratingDesc1Vertical": "Herhangi bir standart kredi/banka kartı alın. Kartı ekranınıza <strong class=\"font-semibold text-rose-600\">dikey</strong> olarak tutun.",
-    "visualSizer.calibration.calibratingDesc2Vertical": "Aşağıdaki kaydırıcıyı, <strong class=\"font-semibold text-rose-600\">ekrandaki kırmızı dikdörtgenin yüksekliği</strong> fiziksel <strong class=\"font-semibold text-rose-600\">kartınızın yüksekliğiyle</strong> (kısa kenarı, yaklaşık 54mm) tam olarak eşleşene kadar ayarlayın.",
-    "visualSizer.calibration.calibratingDesc1LongEdgeVertical": "Herhangi bir standart kredi/banka kartı alın. Kartı <strong class=\"font-semibold text-rose-600\">uzun kenarı dikey olacak şekilde</strong> ekranınıza tutun.",
-    "visualSizer.calibration.calibratingDesc2LongEdgeVertical": "Aşağıdaki kaydırıcıyı, <strong class=\"font-semibold text-rose-600\">ekrandaki kırmızı dikdörtgenin yüksekliği</strong> fiziksel <strong class=\"font-semibold text-rose-600\">kartınızın uzun kenarının uzunluğuyla</strong> (yaklaşık {{value}}mm) tam olarak eşleşene kadar ayarlayın.",
+    "visualSizer.calibration.calibratingDesc1VerticalBottomAlign": "Herhangi bir standart kredi/banka kartı alın. Kartı <strong class=\"font-semibold text-rose-600\">uzun kenarı dikey</strong> olacak şekilde tutun. <strong class=\"font-semibold text-rose-600\">Kartınızın alt kenarını</strong> ekrandaki <strong class=\"font-semibold text-rose-600\">kırmızı kesikli dikdörtgenin alt kenarı</strong> ile hizalayın. Kartın ekrana <strong class=\"font-semibold text-rose-600\">tamamen düz</strong> yaslandığından ve ekrana <strong class=\"font-semibold text-rose-600\">tam karşıdan</strong> baktığınızdan emin olun. Tarayıcı sayfa yakınlaştırmasının %100 olduğunu kontrol edin.",
+    "visualSizer.calibration.calibratingDesc2VerticalBottomAlign": "Aşağıdaki kaydırıcıyı, <strong class=\"font-semibold text-rose-600\">kırmızı kesikli dikdörtgenin üst kenarı</strong> fiziksel <strong class=\"font-semibold text-rose-600\">kartınızın üst kenarıyla</strong> tam olarak eşleşene kadar ayarlayın. Kenar hizalaması için <strong class=\"font-semibold text-rose-600\">uzatılmış artı işaret çizgilerini</strong> kullanın. <strong class=\"font-semibold text-rose-600\">Kartınızın köşelerini</strong> <strong class=\"font-semibold text-rose-600\">kırmızı kesikli dikdörtgenin köşeleriyle</strong> hizalayın; küçük gri <strong class=\"font-semibold text-rose-600\">L şeklindeki kılavuzlar</strong> kartınızın köşelerinin hemen dışında görünür olmalıdır. Dikdörtgenin yüksekliği kartınızın uzun kenarının uzunluğuyla (yaklaşık {{value}}mm) eşleşmelidir.",
     "visualSizer.calibration.sliderLabelVertical": "Kalibrasyon Dikdörtgen Yüksekliğini Ayarla",
+    "visualSizer.calibration.currentHeight": "Dikdörtgen Yüksekliği:",
+    "visualSizer.calibration.targetHeight": "Hedef:",
     "visualSizer.calibration.saveButton": "Kalibrasyonu Kaydet & Yüzüğü Ölç",
     "visualSizer.calibration.recalibrateButton": "Ekranı Yeniden Kalibre Et",
-    "visualSizer.calibration.currentHeight": "Dikdörtgen Yüksekliği:",
-    "visualSizer.calibration.targetHeight": "Hedef:"
+    "visualSizer.calibration.dprMismatchPrompt": "Ekranınızın piksel yoğunluğu veya yakınlaştırma seviyesi son kalibrasyondan bu yana değişmiş görünüyor. Doğru ölçümler için lütfen yeniden kalibre edin.",
+    "visualSizer.calibration.ppiWarning": "Ekran yoğunluğu ({{ppi}} PPI) alışılmadık görünüyor. En iyi sonuçlar için: <ul class='list-disc list-inside mt-1 text-left'><li class='ml-2'>Kartın ekrana <strong>tamamen düz</strong> yaslandığından emin olun.</li><li class='ml-2'>Ekrana <strong>tam karşıdan</strong> bakın.</li><li class='ml-2'>Tarayıcı sayfa yakınlaştırmasının %100 olduğunu kontrol edin.</li></ul>Hizalama doğruysa, yine de kaydedebilirsiniz.",
+    "visualSizer.calibration.areaLabel": "Ayarlanabilir kırmızı dikdörtgen, uzatılmış artı işareti çizgileri ve L-şeklinde köşe kılavuzları içeren ekran kalibrasyon alanı.",
+    "visualSizer.calibration.rectDescription": "Kırmızı kalibrasyon dikdörtgeni şu anda {{height}} piksel yüksekliğinde ve {{width}} piksel genişliğinde.",
+    "visualSizer.calibration.loupeTopLeftTitle": "Sol Üst Köşe",
+    "visualSizer.calibration.loupeTopRightTitle": "Sağ Üst Köşe",
+    
+    "visualSizer.accuracyDisclaimerTitleCalibrated": "Doğruluk Notu:",
+    "visualSizer.accuracyDisclaimerContentCalibrated": "Doğruluk, hassas ekran kalibrasyonuna ve yüzüğü nasıl hizaladığınıza bağlıdır. Kritik ölçümler için daima profesyonel bir kuyumcuya danışın."
   }
 };
 
