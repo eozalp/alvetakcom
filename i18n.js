@@ -1,3 +1,4 @@
+
 // Embed translations directly
 const embeddedTranslations = {
   en: {
@@ -7,11 +8,14 @@ const embeddedTranslations = {
     "app.manualTab": "Manual Size Entry",
     "app.visualTab": "Visual Ring Sizer",
     "app.visualSizer.title": "Visual On-Screen Sizer",
-    "app.visualSizer.instruction": "Place your ring on the screen. Adjust the slider until the blue circle's inner edge aligns with your ring's inner edge.",
+    "app.visualSizer.instruction": "Ensure your screen is calibrated, then place your ring on the screen and use the slider.",
     "app.footer.copyright": "alvetak. For reference purposes only.",
     "app.footer.professionalAdvice": "Always confirm your size with a professional jeweler for important purchases.",
     "app.footer.decorativeLogoAlt": "alvetak decorative element",
     "app.loading": "Loading application...",
+    "app.installBanner.text": "Install alvetak Ring Sizer for quick offline access!",
+    "app.installBanner.installButton": "Install App",
+    "app.installBanner.dismissButton": "Dismiss",
 
     "inputType.diameter_mm": "Diameter (mm)",
     "inputType.circumference_mm": "Circumference (mm)",
@@ -47,13 +51,32 @@ const embeddedTranslations = {
     "resultsDisplay.disclaimerNoEquivalent": "* '-' indicates no direct common equivalent in this chart or data not available.",
 
     "visualSizer.inputTypeLabel": "Visual Sizer",
-    "visualSizer.instructionHighlight": "Adjust the slider below until the <strong class=\"font-semibold\">inner edge of the blue circle</strong> aligns with the <strong class=\"font-semibold\">inner edge of your ring</strong>.",
+    "visualSizer.inputTypeLabelCalibrated": "Visual Sizer (Calibrated)",
+    "visualSizer.instructionHighlightCalibrated": "Place your ring on screen. Adjust the slider until the <strong class=\"font-semibold\">inner edge of the circle</strong> matches your ring's <strong class=\"font-semibold\">inner edge</strong>.",
     "visualSizer.sliderLabel": "Adjust Ring Diameter",
     "visualSizer.diameterLabel": "Diameter",
     "visualSizer.circumferenceLabel": "Circumference",
-    "visualSizer.calculatedInputValue": "{{value}} mm (Calculated)",
-    "visualSizer.accuracyDisclaimerTitle": "Accuracy Disclaimer:",
-    "visualSizer.accuracyDisclaimerContent": "This visual sizer relies on a standard screen PPI. Actual screen PPI varies, potentially affecting accuracy. For precise measurements, consult a professional jeweler."
+    "visualSizer.calculatedInputValue": "{{value}} mm (Calculated - Needs Calibration)",
+    "visualSizer.calculatedInputValueCalibrated": "{{value}} mm (Calibrated)",
+    "visualSizer.accuracyDisclaimerTitle": "Accuracy Disclaimer (Pre-Calibration):",
+    "visualSizer.accuracyDisclaimerContent": "This visual sizer relies on a standard screen PPI. For precise measurements, calibrate your screen or consult a professional jeweler.",
+
+    "visualSizer.calibration.initialTitle": "Screen Calibration Needed",
+    "visualSizer.calibration.initialDesc": "For accurate visual sizing, let's quickly calibrate your screen using a standard credit card.",
+    "visualSizer.calibration.startCalibrationButton": "Start Calibration",
+    "visualSizer.calibration.calibratingTitle": "Calibrate Your Screen",
+    "visualSizer.calibration.calibratingDesc1Vertical": "Take any standard credit/debit card. Hold it <strong class=\"font-semibold text-rose-600\">vertically</strong> against your screen.",
+    "visualSizer.calibration.calibratingDesc2Vertical": "Adjust the slider below until the <strong class=\"font-semibold text-rose-600\">height of the on-screen red rectangle</strong> exactly matches the <strong class=\"font-semibold text-rose-600\">height of your physical card</strong> (the shorter edge, approx. 54mm).",
+    "visualSizer.calibration.calibratingDesc1LongEdgeVertical": "Take any standard credit/debit card. Hold it so its <strong class=\"font-semibold text-rose-600\">long edge is vertical</strong> against your screen.",
+    "visualSizer.calibration.calibratingDesc2LongEdgeVertical": "Adjust the slider below until the <strong class=\"font-semibold text-rose-600\">height of the on-screen red rectangle</strong> exactly matches the <strong class=\"font-semibold text-rose-600\">length of the long edge of your physical card</strong> (approx. {{value}}mm).",
+    "visualSizer.calibration.sliderLabelVertical": "Adjust Calibration Rectangle Height",
+    "visualSizer.calibration.saveButton": "Save Calibration & Measure Ring",
+    "visualSizer.calibration.recalibrateButton": "Recalibrate Screen",
+    "visualSizer.calibration.currentHeight": "Rectangle Height:",
+    "visualSizer.calibration.targetHeight": "Target:",
+
+    "visualSizer.accuracyDisclaimerTitleCalibrated": "Accuracy Note:",
+    "visualSizer.accuracyDisclaimerContentCalibrated": "Accuracy depends on precise screen calibration and how you align the ring. For critical measurements, always consult a professional jeweler."
   },
   tr: {
     "app.title": "alvetak: Uluslararası Yüzük Ölçüsü Dönüştürücü",
@@ -62,11 +85,15 @@ const embeddedTranslations = {
     "app.manualTab": "Manuel Ölçü Girişi",
     "app.visualTab": "Görsel Yüzük Ölçer",
     "app.visualSizer.title": "Görsel Ekran Üzeri Ölçer",
-    "app.visualSizer.instruction": "Yüzüğünüzü ekrana yerleştirin. Mavi dairenin iç kenarı yüzüğünüzün iç kenarıyla hizalanana kadar kaydırıcıyı ayarlayın.",
+    "app.visualSizer.instruction": "Ekranınızın kalibre edildiğinden emin olun, ardından yüzüğünüzü ekrana yerleştirin ve kaydırıcıyı kullanın.",
     "app.footer.copyright": "alvetak. Sadece referans amaçlıdır.",
     "app.footer.professionalAdvice": "Önemli alışverişler için bedeninizi her zaman bir profesyonel kuyumcuya danışarak teyit edin.",
     "app.footer.decorativeLogoAlt": "alvetak dekoratif öğe",
     "app.loading": "Uygulama yükleniyor...",
+    "app.installBanner.text": "Hızlı çevrimdışı erişim için alvetak Yüzük Ölçer'i yükleyin!",
+    "app.installBanner.installButton": "Uygulamayı Yükle",
+    "app.installBanner.dismissButton": "Kapat",
+
 
     "inputType.diameter_mm": "Çap (mm)",
     "inputType.circumference_mm": "Çevre (mm)",
@@ -102,13 +129,31 @@ const embeddedTranslations = {
     "resultsDisplay.disclaimerNoEquivalent": "* '-' işareti, bu tabloda doğrudan yaygın bir eşdeğerin olmadığını veya verinin mevcut olmadığını gösterir.",
 
     "visualSizer.inputTypeLabel": "Görsel Ölçer",
-    "visualSizer.instructionHighlight": "Aşağıdaki kaydırıcıyı, <strong class=\"font-semibold\">mavi dairenin iç kenarı</strong> yüzüğünüzün <strong class=\"font-semibold\">iç kenarıyla</strong> hizalanana kadar ayarlayın.",
+    "visualSizer.inputTypeLabelCalibrated": "Görsel Ölçer (Kalibre Edildi)",
+    "visualSizer.instructionHighlightCalibrated": "Yüzüğünüzü ekrana yerleştirin. Kaydırıcıyı, <strong class=\"font-semibold\">dairenin iç kenarı</strong> yüzüğünüzün <strong class=\"font-semibold\">iç kenarıyla</strong> eşleşene kadar ayarlayın.",
     "visualSizer.sliderLabel": "Yüzük Çapını Ayarla",
     "visualSizer.diameterLabel": "Çap",
     "visualSizer.circumferenceLabel": "Çevre",
-    "visualSizer.calculatedInputValue": "{{value}} mm (Hesaplandı)",
-    "visualSizer.accuracyDisclaimerTitle": "Doğruluk Uyarısı:",
-    "visualSizer.accuracyDisclaimerContent": "Bu görsel ölçer standart bir ekran PPI değerine dayanır. Gerçek ekran PPI değeri değişiklik gösterebilir ve bu durum doğruluğu etkileyebilir. Kesin ölçümler için bir profesyonel kuyumcuya danışın."
+    "visualSizer.calculatedInputValue": "{{value}} mm (Hesaplandı - Kalibrasyon Gerekli)",
+    "visualSizer.calculatedInputValueCalibrated": "{{value}} mm (Kalibre Edildi)",
+    "visualSizer.accuracyDisclaimerTitle": "Doğruluk Uyarısı (Kalibrasyon Öncesi):",
+    "visualSizer.accuracyDisclaimerContent": "Bu görsel ölçer standart bir ekran PPI değerine dayanır. Doğru ölçümler için ekranınızı kalibre edin veya profesyonel bir kuyumcuya danışın.",
+    "visualSizer.accuracyDisclaimerTitleCalibrated": "Doğruluk Notu:",
+    "visualSizer.accuracyDisclaimerContentCalibrated": "Doğruluk, hassas ekran kalibrasyonuna ve yüzüğü nasıl hizaladığınıza bağlıdır. Kritik ölçümler için daima profesyonel bir kuyumcuya danışın.",
+
+    "visualSizer.calibration.initialTitle": "Ekran Kalibrasyonu Gerekli",
+    "visualSizer.calibration.initialDesc": "Doğru görsel ölçüm için, standart bir kredi kartı kullanarak ekranınızı hızlıca kalibre edelim.",
+    "visualSizer.calibration.startCalibrationButton": "Kalibrasyonu Başlat",
+    "visualSizer.calibration.calibratingTitle": "Ekranınızı Kalibre Edin",
+    "visualSizer.calibration.calibratingDesc1Vertical": "Herhangi bir standart kredi/banka kartı alın. Kartı ekranınıza <strong class=\"font-semibold text-rose-600\">dikey</strong> olarak tutun.",
+    "visualSizer.calibration.calibratingDesc2Vertical": "Aşağıdaki kaydırıcıyı, <strong class=\"font-semibold text-rose-600\">ekrandaki kırmızı dikdörtgenin yüksekliği</strong> fiziksel <strong class=\"font-semibold text-rose-600\">kartınızın yüksekliğiyle</strong> (kısa kenarı, yaklaşık 54mm) tam olarak eşleşene kadar ayarlayın.",
+    "visualSizer.calibration.calibratingDesc1LongEdgeVertical": "Herhangi bir standart kredi/banka kartı alın. Kartı <strong class=\"font-semibold text-rose-600\">uzun kenarı dikey olacak şekilde</strong> ekranınıza tutun.",
+    "visualSizer.calibration.calibratingDesc2LongEdgeVertical": "Aşağıdaki kaydırıcıyı, <strong class=\"font-semibold text-rose-600\">ekrandaki kırmızı dikdörtgenin yüksekliği</strong> fiziksel <strong class=\"font-semibold text-rose-600\">kartınızın uzun kenarının uzunluğuyla</strong> (yaklaşık {{value}}mm) tam olarak eşleşene kadar ayarlayın.",
+    "visualSizer.calibration.sliderLabelVertical": "Kalibrasyon Dikdörtgen Yüksekliğini Ayarla",
+    "visualSizer.calibration.saveButton": "Kalibrasyonu Kaydet & Yüzüğü Ölç",
+    "visualSizer.calibration.recalibrateButton": "Ekranı Yeniden Kalibre Et",
+    "visualSizer.calibration.currentHeight": "Dikdörtgen Yüksekliği:",
+    "visualSizer.calibration.targetHeight": "Hedef:"
   }
 };
 
@@ -123,7 +168,6 @@ export function initI18n() {
     const browserLang = navigator.language.split('-')[0].toLowerCase();
     currentLocale = browserLang === 'tr' ? 'tr' : 'en';
   }
-  console.log('i18n initialized. Translations are embedded. Current locale:', currentLocale);
   return currentLocale;
 }
 
@@ -133,7 +177,7 @@ export function setLocale(locale) {
     localStorage.setItem('ringSizerAppLang', locale);
   } else {
     console.warn(`Locale ${locale} data not found. Defaulting to 'en'.`);
-    currentLocale = 'en'; // Should not happen if en is always embedded
+    currentLocale = 'en';
     localStorage.setItem('ringSizerAppLang', 'en');
   }
 }
@@ -147,7 +191,7 @@ export function t(key, replacements) {
 
   if (translation === undefined) {
     console.warn(`Translation key "${key}" not found for locale "${currentLocale}" or fallback "en".`);
-    translation = key; // Return the key itself if not found
+    translation = key;
   }
 
   if (replacements && translation) {
@@ -156,5 +200,5 @@ export function t(key, replacements) {
       translation = translation.replace(regex, String(value));
     });
   }
-  return translation || key; // Ensure some string is returned
+  return translation || key;
 }

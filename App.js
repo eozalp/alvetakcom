@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback, useEffect } from 'react';
 import InputPanel from './components/InputPanel.js';
 import ResultsDisplay from './components/ResultsDisplay.js';
@@ -11,23 +12,70 @@ const App = () => {
   const initialValue = "7";
 
   const [isI18nReady, setIsI18nReady] = useState(false);
-  const [language, setLanguage] = useState('en'); // Default, will be updated
+  const [language, setLanguage] = useState('en');
 
   const [currentInputType, setCurrentInputType] = useState(initialType);
   const [currentInputValue, setCurrentInputValue] = useState(initialValue);
-  const [matchedSize, setMatchedSize] = useState(null); // Initialize to null initially
-  const [activeTab, setActiveTab] = useState('visual'); // Visual sizer is now default
+  const [matchedSize, setMatchedSize] = useState(null);
+  const [activeTab, setActiveTab] = useState('visual');
+
+  const [deferredInstallPrompt, setDeferredInstallPrompt] = useState(null);
+  const [showInstallBanner, setShowInstallBanner] = useState(false);
 
   useEffect(() => {
-    // initI18n is now synchronous for setting the locale
-    const loadedLocale = initI18n(); 
+    const loadedLocale = initI18n();
     setLanguage(loadedLocale);
     document.documentElement.lang = loadedLocale;
     const initialResult = findMatchingSize(initialType, initialValue);
     setMatchedSize(initialResult);
-    setIsI18nReady(true); // Set ready after synchronous setup
+    setIsI18nReady(true);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); 
+  }, []);
+
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (event) => {
+      event.preventDefault(); // Prevent the default mini-infobar
+      setDeferredInstallPrompt(event);
+      // Show the banner only if the app is not already in standalone mode
+      if (!window.matchMedia('(display-mode: standalone)').matches) {
+        setShowInstallBanner(true);
+      }
+      console.log('beforeinstallprompt event fired');
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+    const handleAppInstalled = () => {
+      console.log('PWA was installed');
+      setShowInstallBanner(false);
+      setDeferredInstallPrompt(null); // Clear the prompt as it's been used or is no longer needed
+    };
+
+    window.addEventListener('appinstalled', handleAppInstalled);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.removeEventListener('appinstalled', handleAppInstalled);
+    };
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (deferredInstallPrompt) {
+      deferredInstallPrompt.prompt();
+      const { outcome } = await deferredInstallPrompt.userChoice;
+      if (outcome === 'accepted') {
+        console.log('User accepted the PWA installation prompt');
+      } else {
+        console.log('User dismissed the PWA installation prompt');
+      }
+      setDeferredInstallPrompt(null); // The prompt can only be used once
+      setShowInstallBanner(false); // Hide banner after attempting install
+    }
+  };
+
+  const handleDismissInstallBanner = () => {
+    setShowInstallBanner(false);
+  };
 
   const handleLanguageChange = (lang) => {
     i18nSetLocale(lang);
@@ -52,8 +100,8 @@ const App = () => {
       id: `${tabId}-tab`,
       onClick: () => onClick(tabId),
       className: `flex-1 py-3 px-2 sm:px-4 text-sm sm:text-base font-medium rounded-t-lg transition-all duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-offset-2 focus-visible:ring-offset-rose-50
-        ${currentTab === tabId 
-          ? 'bg-white/80 text-rose-600 shadow-lg' 
+        ${currentTab === tabId
+          ? 'bg-white/80 text-rose-600 shadow-lg'
           : 'bg-rose-100/70 hover:bg-rose-200/80 text-rose-500 hover:text-rose-700'
         }`
     },
@@ -62,7 +110,7 @@ const App = () => {
   );
 
   const translatedCurrentInputTypeLabel = React.useMemo(() => {
-    if (!isI18nReady) return ""; 
+    if (!isI18nReady) return "";
     return getTranslatedInputTypeLabel(currentInputType);
   }, [currentInputType, language, isI18nReady]);
 
@@ -80,8 +128,28 @@ const App = () => {
   }
 
   return (
-    React.createElement('div', { className: "min-h-screen bg-transparent py-6 sm:py-10 flex flex-col items-center selection:bg-rose-300 selection:text-rose-800" },
-      React.createElement('div', { className: "container mx-auto px-4 w-full max-w-2xl" },
+    React.createElement('div', { className: "min-h-screen bg-transparent flex flex-col items-center selection:bg-rose-300 selection:text-rose-800" },
+      showInstallBanner && React.createElement('div', { 
+        className: "fixed top-0 left-0 right-0 z-50 bg-rose-500 text-white p-3 shadow-lg flex items-center justify-between animate-fadeIn" 
+        },
+        React.createElement('p', { className: "text-sm sm:text-base mr-2" }, t('app.installBanner.text')),
+        React.createElement('div', null,
+            React.createElement('button', {
+            onClick: handleInstallClick,
+            className: "bg-white text-rose-600 hover:bg-rose-100 text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-md mr-2 transition-colors"
+            }, t('app.installBanner.installButton')),
+            React.createElement('button', {
+            onClick: handleDismissInstallBanner,
+            className: "text-white hover:bg-rose-600 p-1.5 rounded-full text-xs",
+            "aria-label": t('app.installBanner.dismissButton')
+            }, 
+            React.createElement('svg', {xmlns:"http://www.w3.org/2000/svg", className:"h-4 w-4", fill:"none", viewBox:"0 0 24 24", stroke:"currentColor", strokeWidth:"2"},
+                React.createElement('path', {strokeLinecap:"round", strokeLinejoin:"round", d:"M6 18L18 6M6 6l12 12"})
+            ))
+        )
+      ),
+
+      React.createElement('div', { className: `container mx-auto px-4 w-full max-w-2xl pt-6 sm:pt-10 ${showInstallBanner ? 'mt-16' : ''}` }, // Add margin-top if banner is shown
         React.createElement('header', { className: "text-center mb-6 sm:mb-10" },
           React.createElement('div', { className: "inline-block p-2 sm:p-3 bg-white/70 backdrop-blur-sm rounded-full shadow-lg mb-3 sm:mb-4 group" },
             React.createElement('svg', { xmlns: "http://www.w3.org/2000/svg", className: "h-10 w-10 sm:h-12 sm:w-12 text-rose-500 group-hover:text-rose-600 transition-colors duration-300", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor", strokeWidth: "1.5" },
@@ -99,7 +167,7 @@ const App = () => {
         ),
         React.createElement('main', null,
           React.createElement('div', { className: "mb-6 flex", role: "tablist", "aria-label": t('app.tabListLabel') },
-            React.createElement(TabButton, { tabId: "visual", currentTab: activeTab, onClick: setActiveTab }, 
+            React.createElement(TabButton, { tabId: "visual", currentTab: activeTab, onClick: setActiveTab },
               t('app.visualTab')
             ),
             React.createElement(TabButton, { tabId: "manual", currentTab: activeTab, onClick: setActiveTab },
@@ -139,7 +207,7 @@ const App = () => {
                         t('app.visualSizer.instruction')
                     )
                 ),
-                React.createElement(VisualSizer, { key: language }) 
+                React.createElement(VisualSizer, { key: language })
               )
             )
           )
