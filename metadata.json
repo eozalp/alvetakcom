@@ -1,0 +1,5 @@
+{
+  "name": "Ring Size Converter PWA",
+  "description": "A Progressive Web App to find and convert international ring sizes. Enter a known size (diameter, circumference, or a regional size like US, UK, EU, JP) to see its equivalents in other systems.",
+  "requestFramePermissions": []
+}
